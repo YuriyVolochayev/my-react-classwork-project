@@ -1,16 +1,24 @@
 
-// 1. Імпортуємо функцію useState
+// // 1. Імпортуємо функцію useState
 import { useState } from "react";
+import ClickCounter from "./ClickCounter";
+import Toggle from "./Toggle";
 
 export default function App() {
-	// 2. Оголошуємо стан clicks
-  const [clicks, setClicks] = useState(0);
 
-  const handleClick = () => {
-	  // 3. Використовуємо setClicks для зміни стану clicks
-    setClicks(clicks + 1);
-  };
+    const [clicks, setClicks] = useState(0);
 
-  return <button onClick={handleClick}>Current: {clicks}</button>;
+    const handleClick = () => {
+        setClicks(clicks + 1);
+    };
+    return (
+        <>
+            <ClickCounter value={clicks} onUpdate={handleClick} />
+            <ClickCounter value={clicks} onUpdate={handleClick} />
+            <ClickCounter value={clicks} onUpdate={handleClick} />
+            <ClickCounter value={clicks} onUpdate={handleClick} />
+            <Toggle/>
+            
+        </>
+    )
 }
-
